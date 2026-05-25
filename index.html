@@ -5,537 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>F₄ Home</title>
-  <style>
-    :root {
-      --bg: #0f1115;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-strong: rgba(255, 255, 255, 0.1);
-      --text: #f5f2ea;
-      --muted: #c6c0b3;
-      --accent: #d5b26b;
-      --accent-2: #f0d59d;
-      --line: rgba(255, 255, 255, 0.14);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius: 22px;
-      --max: 1160px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(213, 178, 107, 0.13), transparent 30%),
-        linear-gradient(180deg, #111318 0%, #0d1015 45%, #0a0c10 100%);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(10, 12, 16, 0.72);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-height: 74px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(213, 178, 107, 0.45);
-      background: linear-gradient(135deg, rgba(213, 178, 107, 0.18), rgba(255, 255, 255, 0.04));
-      color: var(--accent-2);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible {
-      color: var(--text);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: transparent;
-      color: var(--text);
-      font-weight: 600;
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .btn:hover,
-    .btn:focus-visible {
-      transform: translateY(-1px);
-      border-color: rgba(255, 255, 255, 0.22);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #b78a39);
-      color: #16120a;
-      border-color: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px rgba(213, 178, 107, 0.25);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      border-color: transparent;
-      background: linear-gradient(135deg, #e1c07e, #c5943b);
-    }
-
-    .hero {
-      padding: 76px 0 54px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-card,
-    .panel {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.04));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card {
-      padding: 44px;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-        url("https://ghr-stk-tpa-prd-s3-public.s3.us-west-2.amazonaws.com/splash.jpg");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: auto -80px -80px auto;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(213, 178, 107, 0.22), transparent 65%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(213, 178, 107, 0.1);
-      color: var(--accent-2);
-      border: 1px solid rgba(213, 178, 107, 0.22);
-      font-size: 0.9rem;
-      letter-spacing: 0.03em;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.1;
-      margin: 0;
-    }
-
-    h1 {
-      margin-top: 18px;
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      letter-spacing: -0.04em;
-    }
-
-    .hero p.lead {
-      margin: 22px 0 0;
-      font-size: 1.14rem;
-      max-width: 62ch;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .meta-item {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .meta-label {
-      display: block;
-      color: var(--muted);
-      font-size: 0.86rem;
-      margin-bottom: 6px;
-    }
-
-    .meta-value {
-      font-weight: 700;
-      font-size: 1.04rem;
-    }
-
-
-
-
-
-
-
-    section {
-      padding: 24px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 18px;
-      padding-left: 10px;
-    }
-
-    .section-head>div {
-      max-width: 760px;
-    }
-
-    .section-head p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      max-width: 64ch;
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      letter-spacing: -0.03em;
-    }
-
-    .grid-3,
-    .grid-2,
-    .grid-4 {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .about-grid .panel {
-      min-height: auto;
-      display: block;
-    }
-
-    .about-grid .panel p {
-      max-width: none;
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .panel {
-      padding: 24px;
-    }
-
-    .panel h3 {
-      font-size: 1.18rem;
-      margin-bottom: 8px;
-    }
-
-    .panel p,
-    .panel li,
-    .muted {
-      color: var(--muted);
-    }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
-      margin: 14px 0 0;
-    }
-
-    ul.clean li {
-      padding: 10px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    ul.clean li:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 18px;
-      padding: 18px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .timeline-item:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .timeline-date {
-      color: var(--accent-2);
-      font-weight: 700;
-    }
-
-    .resource-block {
-      margin-top: 18px;
-    }
-
-    .resource-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-2);
-      margin-bottom: 8px;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      max-width: 100%;
-      white-space: normal;
-      word-break: break-word;
-
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text);
-      font-size: 0.92rem;
-    }
-
-    .score-box {
-      text-align: center;
-      padding: 28px 22px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(213, 178, 107, 0.12), rgba(255, 255, 255, 0.04));
-      border: 1px solid rgba(213, 178, 107, 0.22);
-    }
-
-    .score-box strong {
-      display: block;
-      font-size: 2.4rem;
-      line-height: 1;
-      margin-bottom: 8px;
-      color: var(--accent-2);
-    }
-
-    .cta {
-      margin: 34px 0 72px;
-      padding: 34px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(213, 178, 107, 0.16), rgba(255, 255, 255, 0.05));
-      border: 1px solid rgba(213, 178, 107, 0.26);
-      box-shadow: var(--shadow);
-    }
-
-    .cta-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    footer {
-      padding: 0 0 48px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .small {
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 980px) {
-
-      .hero-grid,
-      .grid-3,
-      .grid-4,
-      .grid-2,
-      .cta-inner {
-        grid-template-columns: 1fr;
-        display: grid;
-      }
-
-      .hero-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar-inner {
-        flex-direction: column;
-        justify-content: center;
-        padding: 14px 0;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-    }
-
-    @media (max-width: 640px) {
-
-      .hero-card,
-      .panel,
-      .cta {
-        padding: 20px;
-      }
-
-      .hero-card {
-        padding: 26px;
-      }
-
-      .nav {
-        justify-content: center;
-        gap: 12px;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .section-head {
-        padding-left: 0;
-      }
-
-      .about-grid .panel {
-        min-height: auto;
-      }
-
-      .about-grid .panel p {
-        max-width: none;
-      }
-
-      .badge-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .badge {
-        width: 100%;
-      }
-    }
-
-    .accordion {
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      margin-top: 10px;
-    }
-
-    .accordion.active+.accordion-content {
-      max-height: 1000px;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
@@ -548,6 +18,8 @@
       <nav class="nav" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#categories">Categories</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#resources">Resources</a>
         <a href="#submission">Deadlines</a>
         <a href="#audience">Audience Rating</a>
         <a href="#contact">Register</a>
@@ -567,8 +39,7 @@
             craftsmanship, and enduring values.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://form.jotform.com/260800517138048" target="_blank">Register Your
-              Film</a>
+            <a class="btn btn-primary" href="https://form.jotform.com/260800517138048" target="_blank">Register Your Film</a>
             <a class="btn" href="#about">Learn More</a>
           </div>
           <div class="hero-meta">
@@ -591,354 +62,95 @@
 
     <section id="about">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>About the festival</h2>
-            <!-- <p>
-              F₄ exists to spotlight student films that are skillful, artistically strong & morally serious. The goal is to elevate stories that are compelling, thoughtful, and genuinely worth sharing.
-            </p> -->
-          </div>
-        </div>
-
+        <div class="section-head"><div><h2>About the festival</h2></div></div>
         <div class="about-grid">
-          <article class="panel">
-            <h3>What we value</h3>
-            <p>
-              Films with strong moral character, meaningful storytelling, & clear creative intent.
-            </p>
-          </article>
-          <article class="panel">
-            <h3>Submission Criteria</h3>
-            <p>
-              Films are evaluated on a stand-alone basis.<br>Collaboration is encouraged, and participants may
-              contribute to multiple films in various roles.
-            </p>
-          </article>
+          <article class="panel"><h3>What we value</h3><p>Films with strong moral character, meaningful storytelling, & clear creative intent.</p></article>
+          <article class="panel"><h3>Submission Criteria</h3><p>Films are evaluated on a stand-alone basis.<br>Collaboration is encouraged, and participants may contribute to multiple films in various roles.</p></article>
         </div>
+      </div>
     </section>
 
     <section id="categories">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Categories for submission</h2>
-            <!-- <p>
-              Categories are intentionally broad enough to welcome excellent work, while still helping judges and audiences understand what kind of film they are viewing.
-            </p> -->
-          </div>
-        </div>
-
+        <div class="section-head"><div><h2>Categories for submission</h2></div></div>
         <div class="grid-3">
-          <article class="panel">
-            <h3>Feature Film</h3>
-            <p>Narrative or films with a runtime of 30 minutes or more.</p>
-          </article>
-          <article class="panel">
-            <h3>Short Film</h3>
-            <p>Films under 30 minutes, including narrative, documentary, or experimental short-form work.</p>
-          </article>
-          <article class="panel">
-            <h3>Documentary</h3>
-            <p>Non-fiction films that inform, explore, investigate, or preserve meaningful real-world stories.</p>
-          </article>
+          <article class="panel"><h3>Feature Film</h3><p>Narrative or films with a runtime of 30 minutes or more.</p></article>
+          <article class="panel"><h3>Short Film</h3><p>Films under 30 minutes, including narrative, documentary, or experimental short-form work.</p></article>
+          <article class="panel"><h3>Documentary</h3><p>Non-fiction films that inform, explore, investigate, or preserve meaningful real-world stories.</p></article>
         </div>
       </div>
     </section>
 
     <section>
       <div class="wrap grid-2">
-        <!-- <article class="panel">
-          <h2>Selection criteria</h2>
-          <p class="muted">
-            Films are reviewed using a balanced approach that considers both artistic merit and substantive impact.
-          </p>
-          <ul class="clean">
-            <li><strong>Narrative</strong>: clarity, coherence, emotional and intellectual impact</li>
-            <li><strong>Quality</strong>: cinematography, sound, editing, design, and execution</li>
-            <li><strong>Originality</strong>: freshness of idea, perspective, or treatment</li>
-          </ul>
-        </article> -->
-
         <article class="panel">
           <h2>Awards</h2>
-          <p class="muted">
-            Official awards are determined by judges, with a separate audience award based on viewer ratings.
-          </p>
-          <div class="badge-row">
-            <span class="badge">Best Feature Film</span>
-            <span class="badge">Best Short Film</span>
-            <span class="badge">Best Documentary</span>
-            <span class="badge">Audience Choice</span>
-          </div>
+          <p class="muted">Official awards are determined by judges, with a separate audience award based on viewer ratings.</p>
+          <div class="badge-row"><span class="badge">Best Feature Film</span><span class="badge">Best Short Film</span><span class="badge">Best Documentary</span><span class="badge">Audience Choice</span></div>
         </article>
       </div>
     </section>
 
     <section id="evaluation">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>How films are evaluated</h2>
-            <!-- <p>
-              F₄ uses a structured judging approach to ensure consistency and clarity. Each major category reflects a core aspect of filmmaking, with optional sub-criteria for deeper evaluation.
-            </p> -->
-          </div>
-        </div>
-
+        <div class="section-head"><div><h2>How films are evaluated</h2></div></div>
         <div class="grid-2">
-          <div class="panel">
-            <h3>Story &amp; Writing</h3>
-            <p class="muted">Narrative strength, clarity, and emotional impact.</p>
-            <button class="accordion">View sub-criteria</button>
-            <div class="accordion-content">
-              <ul class="clean">
-                <li>Story arc (setup, conflict, resolution)</li>
-                <li>Character development</li>
-                <li>Dialogue quality</li>
-                <li>Thematic depth</li>
-              </ul>
-              <div class="resource-block">
-                <div class="resource-label">Learning Resources</div>
-                <div class="badge-row">
-                  <a class="badge"
-                    href="https://themissilesite.com/free-mikes-7-logline-essentials"
-                    target="_blank">📃 7 Logline Essentials</a>
-                  <a class="badge"
-                    href="https://ghr-stk-tpa-prd-s3-public.s3.us-west-2.amazonaws.com/resources/evaluation/narrative/hero-journey.jpg"
-                    target="_blank">🎨 The Hero's Journey</a>
-                  <a class="badge" href="https://a-e-m.org/the-heros-journey-versus-the-disciples-journey/"
-                    target="_blank">📃 The Hero's Journey: A Christian Perpective</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="panel"><h3>Story &amp; Writing</h3><p class="muted">Narrative strength, clarity, and emotional impact.</p><button class="accordion">View sub-criteria</button><div class="accordion-content"><ul class="clean"><li>Story arc (setup, conflict, resolution)</li><li>Character development</li><li>Dialogue quality</li><li>Thematic depth</li></ul></div></div>
+          <div class="panel"><h3>Cinematography</h3><p class="muted">Visual composition and camera execution.</p><button class="accordion">View sub-criteria</button><div class="accordion-content"><ul class="clean"><li>Framing and composition</li><li>Lighting quality</li><li>Camera movement</li><li>Visual consistency</li></ul></div></div>
+          <div class="panel"><h3>Editing</h3><p class="muted">Pacing, structure, and continuity.</p><button class="accordion">View sub-criteria</button><div class="accordion-content"><ul class="clean"><li>Pacing and rhythm</li><li>Continuity</li><li>Transitions</li><li>Clarity of sequence</li></ul></div></div>
+          <div class="panel"><h3>Sound &amp; Music</h3><p class="muted">Audio clarity and enhancement of story.</p><button class="accordion">View sub-criteria</button><div class="accordion-content"><ul class="clean"><li>Dialogue clarity</li><li>Sound design</li><li>Music integration</li><li>Mixing balance</li></ul></div></div>
+        </div>
+      </div>
+    </section>
 
-          <div class="panel">
-            <h3>Cinematography</h3>
-            <p class="muted">Visual composition and camera execution.</p>
-            <button class="accordion">View sub-criteria</button>
-            <div class="accordion-content">
-              <ul class="clean">
-                <li>Framing and composition</li>
-                <li>Lighting quality</li>
-                <li>Camera movement</li>
-                <li>Visual consistency</li>
-              </ul>
-              <div class="resource-block">
-                <div class="resource-label">Learning Resources</div>
-                <div class="badge-row">
-                  <a class="badge"
-                    href="https://youtu.be/ecAHSt0Xneo?si=1_KBk3SbfbkyD5K5"
-                    target="_blank">📹 How to Practice Cinematography Solo</a>
-                  <a class="badge" href="https://www.videomaker.com/article/c10/14215-a-beginners-guide-to-the-rule-of-thirds/">📃 A beginner's guide to the rule of thirds</a>
-                  <!-- <a class="badge" href="#">Shot Composition</a>
-                  <a class="badge" href="#">Camera Movement Guide</a>-->
-                  <a class="badge" href="https://filmconnection.com/blog/2020/01/13/film-lighting-basics/">📃 Film Lighting Basics</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel">
-            <h3>Editing</h3>
-            <p class="muted">Pacing, structure, and continuity.</p>
-            <button class="accordion">View sub-criteria</button>
-            <div class="accordion-content">
-              <ul class="clean">
-                <li>Pacing and rhythm</li>
-                <li>Continuity</li>
-                <li>Transitions</li>
-                <li>Clarity of sequence</li>
-              </ul>
-              <!-- <div class="resource-block">
-                <div class="resource-label">Learning Resources</div>
-                <div class="badge-row">
-                  <a class="badge" href="#">Continuity Editing</a>
-                  <a class="badge" href="#">Match Cuts</a>
-                  <a class="badge" href="#">Montage Theory</a>
-                  <a class="badge" href="#">Pacing &amp; Rhythm</a>
-                </div>
-              </div> -->
-            </div>
-          </div>
-
-          <div class="panel">
-            <h3>Sound &amp; Music</h3>
-            <p class="muted">Audio clarity and enhancement of story.</p>
-            <button class="accordion">View sub-criteria</button>
-            <div class="accordion-content">
-              <ul class="clean">
-                <li>Dialogue clarity</li>
-                <li>Sound design</li>
-                <li>Music integration</li>
-                <li>Mixing balance</li>
-              </ul>
-              <!-- <div class="resource-block">
-                <div class="resource-label">Learning Resources</div>
-                <div class="badge-row">
-                  <a class="badge" href="#">Foley &amp; Sound Design</a>
-                  <a class="badge" href="#">Diegetic vs Non-Diegetic</a>
-                  <a class="badge" href="#">Music Scoring Basics</a>
-                  <a class="badge" href="#">Audio Mixing Fundamentals</a>
-                </div>
-              </div>
-            </div> -->
-          </div>
+    <section id="resources">
+      <div class="wrap">
+        <div class="section-head"><div><h2>Learning Resources</h2><p>Helpful resources for planning, writing, shooting, and improving festival submissions.</p></div></div>
+        <div class="grid-2">
+          <article class="panel"><h3>Story &amp; Writing</h3><ul class="clean"><li><a href="https://themissilesite.com/free-mikes-7-logline-essentials" target="_blank">📃 7 Logline Essentials</a></li><li><a href="https://ghr-stk-tpa-prd-s3-public.s3.us-west-2.amazonaws.com/resources/evaluation/narrative/hero-journey.jpg" target="_blank">🎨 The Hero's Journey</a></li><li><a href="https://a-e-m.org/the-heros-journey-versus-the-disciples-journey/" target="_blank">📃 The Hero's Journey: A Christian Perspective</a></li></ul></article>
+          <article class="panel"><h3>Cinematography</h3><ul class="clean"><li><a href="https://youtu.be/ecAHSt0Xneo?si=1_KBk3SbfbkyD5K5" target="_blank">📹 How to Practice Cinematography Solo</a></li><li><a href="https://www.videomaker.com/article/c10/14215-a-beginners-guide-to-the-rule-of-thirds/" target="_blank">📃 A beginner's guide to the rule of thirds</a></li><li><a href="https://filmconnection.com/blog/2020/01/13/film-lighting-basics/" target="_blank">📃 Film Lighting Basics</a></li></ul></article>
+          <article class="panel"><h3>Editing</h3><ul class="clean"><li>More resources coming soon.</li></ul></article>
+          <article class="panel"><h3>Sound &amp; Music</h3><ul class="clean"><li>More resources coming soon.</li></ul></article>
         </div>
       </div>
     </section>
 
     <section id="submission">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Deadlines</h2>
-            <!-- <p>
-              The sections below are meant to answer the core filmmaker questions clearly: what to submit, how films are selected, what happens next, and what materials are needed if a film is accepted.
-            </p> -->
-          </div>
-        </div>
-
+        <div class="section-head"><div><h2>Deadlines</h2></div></div>
         <div class="grid-2">
           <article class="panel">
             <h3>Key dates</h3>
             <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">April 1, 2026</div>
-                <div>
-                  <strong>Registration Open</strong>
-                  <div class="muted"><u><a href="https://form.jotform.com/260800517138048" target="_blank" style="color: lightblue;">Register a
-                Film</a></u>, even if you haven't dialed in all of the details yet. You'll have an opportunity to update the information later when you submit.</div>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">October 1, 2026</div>
-                <div>
-                  <strong>Registration Closed / Submissions Open</strong>
-                  <div class="muted">Standard registration window closes. This gives us time to prepare, & creates a window by which we ensure that all submissions have been worked on for a meaningful period of time. At this point, submissions will be accepted (check this page for updated submission buttons).</div>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">November 1, 2026</div>
-                <div>
-                  <strong>Submission Deadline</strong>
-                  <div class="muted">Final day to submit eligible projects.</div>
-                </div>
-              </div>
+              <div class="timeline-item"><div class="timeline-date">April 1, 2026</div><div><strong>Registration Open</strong><div class="muted"><u><a href="https://form.jotform.com/260800517138048" target="_blank" style="color: lightblue;">Register a Film</a></u>, even if you haven't dialed in all of the details yet. You'll have an opportunity to update the information later when you submit.</div></div></div>
+              <div class="timeline-item"><div class="timeline-date">October 1, 2026</div><div><strong>Registration Closed / Submissions Open</strong><div class="muted">Standard registration window closes. This gives us time to prepare, & creates a window by which we ensure that all submissions have been worked on for a meaningful period of time. At this point, submissions will be accepted.</div></div></div>
+              <div class="timeline-item"><div class="timeline-date">November 1, 2026</div><div><strong>Submission Deadline</strong><div class="muted">Final day to submit eligible projects.</div></div></div>
             </div>
           </article>
-
-          <!-- <article class="panel">
-            <h3>Rules &amp; eligibility</h3>
-            <ul class="clean">
-              <li>Films should align with family-friendly or values-based standards.</li>
-              <li>No explicit sexual content or gratuitous violence.</li>
-              <li>English-language films are welcome, or non-English films with English subtitles.</li>
-              <li>Entrants must hold the necessary rights for music, footage, and all included materials.</li>
-              <li>Films should be completed on or after January 1, 2024.</li>
-              <li>Works in progress may be considered, but selected films must be delivered in final screening form.</li>
-            </ul>
-          </article> -->
-
-          <!-- <article class="panel">
-            <h3>Notification</h3>
-            <p>
-              All filmmakers will be notified by the published notification date. Selected films will receive official communication with acceptance details, artwork requirements, screening instructions, and promotional next steps.
-            </p>
-            <p>
-              Non-selected films will also receive notification through the submission platform.
-            </p>
-          </article> -->
-
-          <!-- <article class="panel">
-            <h3>Screening deliverables</h3>
-            <ul class="clean">
-              <li>Final screening file in an approved digital format</li>
-              <li>3–5 high-resolution stills from the film</li>
-              <li>Poster artwork, if available</li>
-              <li>Director bio and film synopsis</li>
-              <li>Optional trailer or teaser</li>
-            </ul>
-          </article> -->
         </div>
       </div>
     </section>
 
     <section id="audience">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Audience rating</h2>
-            <p>
-              In addition to juried awards, F₄ includes an audience rating component so viewers can recognize films that
-              genuinely connected with the room.
-            </p>
-          </div>
-        </div>
-
+        <div class="section-head"><div><h2>Audience rating</h2><p>In addition to juried awards, F₄ includes an audience rating component so viewers can recognize films that genuinely connected with the room.</p></div></div>
         <div class="grid-4">
-          <article class="panel score-box">
-            <strong>1–5</strong>
-            <span>Simple rating scale</span>
-          </article>
-          <article class="panel">
-            <h3>How it works</h3>
-            <p>Attendees rate a film after its screening using a mobile-friendly form or QR code.</p>
-          </article>
-          <article class="panel">
-            <h3>What it decides</h3>
-            <p>The highest qualified audience score receives the <strong>Audience Choice Award</strong>.</p>
-          </article>
-          <!-- <article class="panel">
-            <h3>Safeguards</h3>
-            <p>One rating per attendee per film, with a minimum number of ratings required to qualify.</p>
-          </article> -->
+          <article class="panel score-box"><strong>1–5</strong><span>Simple rating scale</span></article>
+          <article class="panel"><h3>How it works</h3><p>Attendees rate a film after its screening using a mobile-friendly form or QR code.</p></article>
+          <article class="panel"><h3>What it decides</h3><p>The highest qualified audience score receives the <strong>Audience Choice Award</strong>.</p></article>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap grid-2">
-        <!-- <article class="panel">
-          <h2>Why filmmakers may find this useful</h2>
-          <p>
-            F₄ is designed to be understandable at a glance. A filmmaker should be able to land on the page, understand the mission, confirm basic eligibility, review categories, and know what to expect next without digging through multiple layers of navigation.
-          </p>
-        </article> -->
       </div>
     </section>
 
     <section id="contact">
-      <div class="wrap">
-        <div class="cta">
-          <div class="cta-inner">
-            <div>
-              <h2>Ready to register?</h2>
-              <p class="muted">
-                All you need is what you have so far: a title, a description of the concept, and the team so far.<br>It's ok if details change as you progress.
-              </p>
-            </div>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="https://form.jotform.com/260800517138048" target="_blank">Register Your
-                Film</a>
-              <a class="btn" href="#top">Back to Top</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="wrap"><div class="cta"><div class="cta-inner"><div><h2>Ready to register?</h2><p class="muted">All you need is what you have so far: a title, a description of the concept, and the team so far.<br>It's ok if details change as you progress.</p></div><div class="hero-actions"><a class="btn btn-primary" href="https://form.jotform.com/260800517138048" target="_blank">Register Your Film</a><a class="btn" href="#top">Back to Top</a></div></div></div></div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div>© 2026 F₄</div>
-    </div>
-  </footer>
+  <footer><div class="wrap"><div>© 2026 F₄</div></div></footer>
   <script>
     document.querySelectorAll('.accordion').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('active');
-      });
+      btn.addEventListener('click', () => btn.classList.toggle('active'));
     });
   </script>
 </body>
