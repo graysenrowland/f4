@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F₄ Story Outline Template</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #5f6c7b;
+      --line: #c9d3df;
+      --soft: #f5f7fa;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.35;
+      background: #ffffff;
+    }
+
+    main {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.35in;
+    }
+
+    header {
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 0.2in;
+      padding-bottom: 0.12in;
+    }
+
+    h1 {
+      margin: 0 0 0.06in;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 0.8in 1fr 0.65in 1.1in;
+      gap: 0.12in;
+      align-items: end;
+      margin: 0.14in 0 0.22in;
+      font-size: 13px;
+    }
+
+    .line {
+      border-bottom: 1px solid var(--ink);
+      min-height: 0.22in;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.12in;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.1in;
+      min-height: 1.38in;
+      break-inside: avoid;
+    }
+
+    .step h2 {
+      margin: 0 0 0.05in;
+      font-size: 14px;
+    }
+
+    .prompt {
+      margin: 0 0 0.06in;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .scene-lines {
+      display: grid;
+      grid-template-columns: 0.48in 1fr;
+      gap: 0.04in 0.07in;
+      font-size: 11px;
+      align-items: end;
+    }
+
+    .scene-line {
+      border-bottom: 1px solid var(--line);
+      height: 0.2in;
+    }
+
+    footer {
+      margin-top: 0.2in;
+      padding-top: 0.1in;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media print {
+      @page { size: letter; margin: 0.25in; }
+      main { padding: 0; max-width: none; }
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .step { min-height: 1.2in; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>F₄ Story Outline Template</h1>
+      <p class="intro">Use this after the story worksheet. For each Hero's Journey step, list the scene or scenes that will show that moment on screen.</p>
+    </header>
+
+    <section class="field-row" aria-label="Project details">
+      <strong>Title</strong><div class="line"></div>
+      <strong>Team</strong><div class="line"></div>
+    </section>
+
+    <section class="steps">
+      <article class="step">
+        <h2>1. Start</h2>
+        <p class="prompt">What does ordinary life look like before anything changes?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>2. Ordinary World</h2>
+        <p class="prompt">Where is the hero? What do they care about? What is missing or unsettled?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>3. Call to Adventure</h2>
+        <p class="prompt">What problem, opportunity, or invitation pulls the hero toward change?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>4. Refusal of the Call</h2>
+        <p class="prompt">Why does the hero hesitate, resist, or feel unready?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>5. Meeting the Mentor</h2>
+        <p class="prompt">Who or what gives guidance, courage, warning, training, or wisdom?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>6. Crossing the Threshold</h2>
+        <p class="prompt">What decision moves the hero out of the old life and into the adventure?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>7. Tests, Allies, and Enemies</h2>
+        <p class="prompt">What challenges, helpers, and opponents shape the hero?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>8. Approach to the Inmost Cave</h2>
+        <p class="prompt">How does the hero prepare to face the central danger or hardest truth?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>9. Ordeal</h2>
+        <p class="prompt">What is the biggest crisis, failure, danger, or confrontation?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>10. Reward / Gift</h2>
+        <p class="prompt">What is gained because of the ordeal: object, truth, skill, trust, or courage?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>11. The Road Back</h2>
+        <p class="prompt">What pulls the hero back toward home, duty, consequence, or final action?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>12. Death and Rebirth</h2>
+        <p class="prompt">What final change proves the hero is no longer who they were at the start?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>13. Return with the Gift</h2>
+        <p class="prompt">How does the hero bring what they gained back to others?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+
+      <article class="step">
+        <h2>14. End</h2>
+        <p class="prompt">What does the final image show about what has changed?</p>
+        <div class="scene-lines"><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div><span>Scene</span><div class="scene-line"></div></div>
+      </article>
+    </section>
+
+    <footer>
+      Tip: A single Hero's Journey step may take one scene, several scenes, or only part of a scene. The goal is to turn story beats into filmable moments.
+    </footer>
+  </main>
+</body>
+</html>
