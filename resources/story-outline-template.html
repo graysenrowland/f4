@@ -8,190 +8,26 @@
 :root{--ink:#1f2933;--muted:#5f6c7b;--line:#c9d3df;--soft:#f5f7fa;--accent:#111827}
 *{box-sizing:border-box}
 body{margin:0;background:#d7d7d7;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-.page{width:850px;height:1100px;background:white;margin:20px auto;padding:54px 58px 82px;page-break-after:always;position:relative;overflow:hidden}
+.page{width:850px;height:1100px;background:white;margin:20px auto;padding:50px 58px 96px;page-break-after:always;position:relative;overflow:hidden}
 .brand{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
 .title{font-size:48px;line-height:1.02;font-weight:800;margin:92px 0 18px;letter-spacing:-.04em}
 .subtitle{font-size:23px;color:var(--muted);margin-bottom:42px;line-height:1.35}
 .cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
 .box{border:2px solid var(--line);border-radius:12px;padding:18px;min-height:126px}
-.box h2{font-size:18px;margin:0 0 12px}
-.box p,.box li{font-size:15px;line-height:1.45;color:var(--muted)}
+.box h2{font-size:18px;margin:0 0 12px}.box p,.box li{font-size:15px;line-height:1.45;color:var(--muted)}
 .field{border-bottom:2px solid var(--ink);height:42px;margin-top:16px}
-.footer{position:absolute;left:58px;right:58px;bottom:34px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
-.step-no{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
-.step-title{font-size:38px;font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
-.primary{font-size:24px;line-height:1.25;font-weight:700;margin:0 0 18px;padding:18px 20px;border-left:8px solid var(--accent);background:var(--soft)}
-.support{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
-.support div{border:1px solid var(--line);border-radius:10px;padding:12px;font-size:13px;line-height:1.32;color:var(--muted);min-height:78px}
-.label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:16px 0 8px}
-.scene-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
-.scene-box{height:62px;border:1px solid var(--line);border-radius:8px;padding:8px;font-size:12px;color:var(--muted)}
-.idea-lines{height:222px;border:1px solid var(--line);border-radius:10px;background:repeating-linear-gradient(#fff,#fff 31px,#d8dee8 32px)}
-.notes{height:414px;border:1px solid var(--line);border-radius:10px;background:repeating-linear-gradient(#fff,#fff 31px,#d8dee8 32px)}
-@media print{
-@page{size:850px 1100px;margin:0}
-body{background:#fff}
-.page{margin:0;width:850px;height:1100px;break-after:page;page-break-after:always}
-}
+.footer{position:absolute;left:58px;right:58px;bottom:30px;height:34px;border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;background:white;z-index:5}
+.step-no{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}.step-title{font-size:38px;font-weight:800;letter-spacing:-.03em;margin-bottom:10px}.primary{font-size:24px;line-height:1.25;font-weight:700;margin:0 0 16px;padding:18px 20px;border-left:8px solid var(--accent);background:var(--soft)}
+.support{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}.support div{border:1px solid var(--line);border-radius:10px;padding:12px;font-size:13px;line-height:1.32;color:var(--muted);min-height:76px}
+.label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:14px 0 8px}.scene-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}.scene-box{height:56px;border:1px solid var(--line);border-radius:8px;padding:8px;font-size:12px;color:var(--muted)}
+.idea-lines{height:190px;border:1px solid var(--line);border-radius:10px;background:repeating-linear-gradient(#fff,#fff 31px,#d8dee8 32px)}.notes{height:354px;border:1px solid var(--line);border-radius:10px;background:repeating-linear-gradient(#fff,#fff 31px,#d8dee8 32px)}
+@media print{@page{size:850px 1100px;margin:0}body{background:#fff}.page{margin:0;width:850px;height:1100px;break-after:page;page-break-after:always}}
 </style>
 </head>
 <body>
-<section class="page">
-<div class="brand">F₄ Story Development</div>
-<div class="title">Story Outline Workbook</div>
-<div class="subtitle">Brainstorm scenes using the 14 Hero’s Journey beats before building your scene list.</div>
-<div class="box">
-<h2>How to use this workbook</h2>
-<p>This workbook comes before your scene list and screenplay. Use it while your imagination is still wide open. Each beat helps you brainstorm possible scenes, choices, conflicts, surprises, images, and character changes. Later, choose the strongest ideas and arrange them into a scene list.</p>
-</div>
-<div class="cover-grid">
-<div class="box"><h2>Story Title</h2><div class="field"></div></div>
-<div class="box"><h2>Team / Writer</h2><div class="field"></div></div>
-</div>
-<div class="cover-grid">
-<div class="box"><h2>Example</h2><p><strong>Beat:</strong> Call to Adventure<br><strong>Possible moment:</strong> A problem arrives that the hero can no longer ignore.</p></div>
-<div class="box"><h2>Remember</h2><ul><li>One step may use several scenes.</li><li>One scene may serve more than one step.</li><li>Some ideas may disappear later.</li><li>Focus on what the audience can see and hear.</li></ul></div>
-</div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 1 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 1 of 14</div>
-<div class="step-title">Start</div>
-<div class="primary">Who’s the story about?</div>
-<div class="support"><div>What does everyday life look like before anything changes?</div><div>What should the audience know about them right away?</div><div>Which scenes introduce the character and their world?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 2 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 2 of 14</div>
-<div class="step-title">Call to Adventure</div>
-<div class="primary">What problem or invitation pulls them into the story?</div>
-<div class="support"><div>What disrupts ordinary life?</div><div>What scene makes the story begin?</div><div>What can no longer be ignored?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 3 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 3 of 14</div>
-<div class="step-title">Mentor</div>
-<div class="primary">Who gives them advice, training, direction, or inspiration?</div>
-<div class="support"><div>Who helps prepare them?</div><div>What wisdom, warning, or encouragement is given?</div><div>Which scene shows that help clearly?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 4 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 4 of 14</div>
-<div class="step-title">Crossing the Threshold</div>
-<div class="primary">What moment sends them into the unknown?</div>
-<div class="support"><div>What choice commits them to the journey?</div><div>What is the point of no return?</div><div>What scene shows them entering a new situation?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 5 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 5 of 14</div>
-<div class="step-title">Trials &amp; Failure</div>
-<div class="primary">What challenge(s) force them to grow?</div>
-<div class="support"><div>What obstacles test them?</div><div>Where do they fail or struggle?</div><div>Which scenes show difficulty instead of instant success?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 6 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 6 of 14</div>
-<div class="step-title">A Helper</div>
-<div class="primary">Who joins or supports them along the way?</div>
-<div class="support"><div>Who stands with them?</div><div>How does this helper change the journey?</div><div>Which scenes build that relationship?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 7 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 7 of 14</div>
-<div class="step-title">Growth</div>
-<div class="primary">What new skill, courage, or lesson do they gain?</div>
-<div class="support"><div>What is changing inside the character?</div><div>What do they learn to do or believe?</div><div>Which scenes show visible growth?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 8 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 8 of 14</div>
-<div class="step-title">Death &amp; Rebirth</div>
-<div class="primary">What is their lowest point, where they almost give up?</div>
-<div class="support"><div>What feels lost?</div><div>Why does this moment hurt?</div><div>What scene makes the audience wonder whether they will continue?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 9 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 9 of 14</div>
-<div class="step-title">Revelation</div>
-<div class="primary">What truth do they finally understand?</div>
-<div class="support"><div>What do they see clearly now?</div><div>What were they wrong about before?</div><div>Which scene reveals the truth?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 10 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 10 of 14</div>
-<div class="step-title">Proof of Change</div>
-<div class="primary">What choice proves they have changed?</div>
-<div class="support"><div>What decision would they not have made at the beginning?</div><div>What action proves the change?</div><div>Which scene shows the new self replacing the old self?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 11 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 11 of 14</div>
-<div class="step-title">Atonement</div>
-<div class="primary">Who or what do they make right?</div>
-<div class="support"><div>What relationship, mistake, or wrong must be repaired?</div><div>Who needs reconciliation or justice?</div><div>Which scene shows something being made right?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 12 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 12 of 14</div>
-<div class="step-title">Gift</div>
-<div class="primary">What have they gained, received, or brought back?</div>
-<div class="support"><div>Is the gift an object, truth, skill, courage, relationship, or opportunity?</div><div>How is it received or earned?</div><div>Which scenes show its value?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 13 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 13 of 14</div>
-<div class="step-title">Return</div>
-<div class="primary">How does everyday life show that they’ve changed?</div>
-<div class="support"><div>Where do they return?</div><div>How is normal life different now?</div><div>Which scenes show the change in action?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 14 of 15</span></div>
-</section>
-<section class="page">
-<div class="step-no">Step 14 of 14</div>
-<div class="step-title">End</div>
-<div class="primary">Who notices the change, and what is different going forward?</div>
-<div class="support"><div>What final image summarizes the story?</div><div>Who recognizes the difference?</div><div>What should the audience remember?</div></div>
-<div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div>
-<div class="label">Scene ideas</div><div class="idea-lines"></div>
-<div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div>
-<div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 15 of 15</span></div>
-</section>
+<section class="page"><div class="brand">F₄ Story Development</div><div class="title">Story Outline Workbook</div><div class="subtitle">Brainstorm scenes using the 14 Hero’s Journey beats before building your scene list.</div><div class="box"><h2>How to use this workbook</h2><p>This workbook comes before your scene list and screenplay. Use it while your imagination is still wide open. Each beat helps you brainstorm possible scenes, choices, conflicts, surprises, images, and character changes. Later, choose the strongest ideas and arrange them into a scene list.</p></div><div class="cover-grid"><div class="box"><h2>Story Title</h2><div class="field"></div></div><div class="box"><h2>Team / Writer</h2><div class="field"></div></div></div><div class="cover-grid"><div class="box"><h2>Example</h2><p><strong>Beat:</strong> Call to Adventure<br><strong>Possible moment:</strong> A problem arrives that the hero can no longer ignore.</p></div><div class="box"><h2>Remember</h2><ul><li>One step may use several scenes.</li><li>One scene may serve more than one step.</li><li>Some ideas may disappear later.</li><li>Focus on what the audience can see and hear.</li></ul></div></div><div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page 1 of 15</span></div></section>
+<script>
+const steps=[['Start','Who’s the story about?','What does everyday life look like before anything changes?','What should the audience know about them right away?','Which scenes introduce the character and their world?'],['Call to Adventure','What problem or invitation pulls them into the story?','What disrupts ordinary life?','What scene makes the story begin?','What can no longer be ignored?'],['Mentor','Who gives them advice, training, direction, or inspiration?','Who helps prepare them?','What wisdom, warning, or encouragement is given?','Which scene shows that help clearly?'],['Crossing the Threshold','What moment sends them into the unknown?','What choice commits them to the journey?','What is the point of no return?','What scene shows them entering a new situation?'],['Trials & Failure','What challenge(s) force them to grow?','What obstacles test them?','Where do they fail or struggle?','Which scenes show difficulty instead of instant success?'],['A Helper','Who joins or supports them along the way?','Who stands with them?','How does this helper change the journey?','Which scenes build that relationship?'],['Growth','What new skill, courage, or lesson do they gain?','What is changing inside the character?','What do they learn to do or believe?','Which scenes show visible growth?'],['Death & Rebirth','What is their lowest point, where they almost give up?','What feels lost?','Why does this moment hurt?','What scene makes the audience wonder whether they will continue?'],['Revelation','What truth do they finally understand?','What do they see clearly now?','What were they wrong about before?','Which scene reveals the truth?'],['Proof of Change','What choice proves they have changed?','What decision would they not have made at the beginning?','What action proves the change?','Which scene shows the new self replacing the old self?'],['Atonement','Who or what do they make right?','What relationship, mistake, or wrong must be repaired?','Who needs reconciliation or justice?','Which scene shows something being made right?'],['Gift','What have they gained, received, or brought back?','Is the gift an object, truth, skill, courage, relationship, or opportunity?','How is it received or earned?','Which scenes show its value?'],['Return','How does everyday life show that they’ve changed?','Where do they return?','How is normal life different now?','Which scenes show the change in action?'],['End','Who notices the change, and what is different going forward?','What final image summarizes the story?','Who recognizes the difference?','What should the audience remember?']];
+document.body.insertAdjacentHTML('beforeend',steps.map((s,i)=>`<section class="page"><div class="step-no">Step ${i+1} of 14</div><div class="step-title">${s[0]}</div><div class="primary">${s[1]}</div><div class="support"><div>${s[2]}</div><div>${s[3]}</div><div>${s[4]}</div></div><div class="label">Possible scenes / moments</div><div class="scene-grid"><div class="scene-box">Full scene</div><div class="scene-box">Small moment</div><div class="scene-box">Visual idea</div><div class="scene-box">Maybe later</div></div><div class="label">Scene ideas</div><div class="idea-lines"></div><div class="label">Notes, dialogue ideas, visual ideas, character moments</div><div class="notes"></div><div class="footer"><span>F₄ Freedom Family Film Festival</span><span>Page ${i+2} of 15</span></div></section>`).join(''));
+</script>
 </body></html>
