@@ -1,0 +1,9 @@
+equipment:
+  CAM_001:
+    img: CAM_001.jpg
+    buy: https://www.amazon.com/dp/B092RJZ7N8
+    have: 3
+    loandd:
+      - name: Jon Doe
+        taken: 2026-06-01
+        returns: 2026-06-30
