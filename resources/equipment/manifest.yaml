@@ -40,6 +40,7 @@ equipment:
         returns: 2026-07-01
   ACCES_001:
     description: Motorcycle Helmet Chin Strap Mount for GoPro Hero
+    img: ACCES_001.jpg
     buy: https://www.amazon.com/dp/B087FRWK8B
     have: 1
     loaned: []
