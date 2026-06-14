@@ -69,19 +69,20 @@ function renderEquipment(items) {
     const have = Number(item.have || 0);
     const available = Math.max(have - loaned.length, 0);
     const id = escapeHtml(item.id);
-    const image = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${id}">` : '';
+    const description = escapeHtml(item.description || item.id);
+    const image = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${description}">` : '';
     const loansHtml = loaned.length
       ? `<table class="loan-table"><thead><tr><th>Borrower</th><th>Taken</th><th>Expected Return</th></tr></thead><tbody>${loaned.map(loan => `<tr><td>${escapeHtml(loan.name)}</td><td>${escapeHtml(formatDate(loan.taken))}</td><td>${escapeHtml(formatDate(loan.returns))}</td></tr>`).join('')}</tbody></table>`
       : '<p class="muted">Nothing is currently loaned out.</p>';
 
     return `
       <tr class="equipment-row" tabindex="0" aria-expanded="false">
-        <td><strong>${id}</strong></td>
+        <td><strong>${description}</strong></td>
         <td>${image}</td>
         <td>${available}</td>
         <td>${loaned.length}</td>
       </tr>
-      <tr class="equipment-details"><td colspan="4"><div class="equipment-details-inner"><h3>${id} loans</h3>${loansHtml}</div></td></tr>
+      <tr class="equipment-details"><td colspan="4"><div class="equipment-details-inner"><h3>${description} loans</h3>${loansHtml}</div></td></tr>
     `;
   }).join('');
 
