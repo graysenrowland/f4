@@ -1,0 +1,9 @@
+[
+  { "label": "About F₄", "href": "index.html#about" },
+  { "label": "Film Categories", "href": "index.html#categories" },
+  { "label": "Awards & Judging", "href": "index.html#evaluation" },
+  { "label": "Important Dates", "href": "index.html#submission" },
+  { "label": "Learning Resources", "href": "index.html#resources" },
+  { "label": "Equipment", "href": "equipment.html" },
+  { "label": "Register", "href": "index.html#contact" }
+]

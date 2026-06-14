@@ -38,3 +38,8 @@ equipment:
       - name: Annie
         taken: 2026-06-13
         returns: 2026-07-01
+  ACCES_001:
+    description: Motorcycle Helmet Chin Strap Mount for GoPro Hero
+    buy: https://www.amazon.com/dp/B087FRWK8B
+    have: 1
+    loaned: []
