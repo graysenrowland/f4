@@ -60,7 +60,7 @@ function formatDate(value) {
 function renderEquipment(items) {
   const tbody = document.getElementById('equipment-body');
   if (!items.length) {
-    tbody.innerHTML = '<tr><td colspan="5" class="muted">No equipment listed yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4" class="muted">No equipment listed yet.</td></tr>';
     return;
   }
 
@@ -78,11 +78,10 @@ function renderEquipment(items) {
       <tr class="equipment-row" tabindex="0" aria-expanded="false">
         <td><strong>${id}</strong></td>
         <td>${image}</td>
-        <td>${have}</td>
         <td>${available}</td>
         <td>${loaned.length}</td>
       </tr>
-      <tr class="equipment-details"><td colspan="5"><div class="equipment-details-inner"><h3>${id} loans</h3>${loansHtml}</div></td></tr>
+      <tr class="equipment-details"><td colspan="4"><div class="equipment-details-inner"><h3>${id} loans</h3>${loansHtml}</div></td></tr>
     `;
   }).join('');
 
@@ -108,5 +107,5 @@ fetch('resources/equipment/manifest.yaml')
   })
   .then(text => renderEquipment(parseEquipmentManifest(text)))
   .catch(() => {
-    document.getElementById('equipment-body').innerHTML = '<tr><td colspan="5" class="muted">Equipment manifest could not be loaded.</td></tr>';
+    document.getElementById('equipment-body').innerHTML = '<tr><td colspan="4" class="muted">Equipment manifest could not be loaded.</td></tr>';
   });
