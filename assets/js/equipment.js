@@ -29,7 +29,7 @@ function parseEquipmentManifest(yaml) {
     if (propMatch) {
       const key = propMatch[1];
       const value = propMatch[2].trim();
-      if (key === 'loaned') return;
+      if (key === 'loaned' || key === 'buy') return;
       equipment[currentId][key] = key === 'have' ? Number(value) : value;
       return;
     }
@@ -69,8 +69,7 @@ function renderEquipment(items) {
     const have = Number(item.have || 0);
     const available = Math.max(have - loaned.length, 0);
     const id = escapeHtml(item.id);
-    const rawImage = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${id}">` : '';
-    const image = item.buy && rawImage ? `<a class="equipment-image-link" href="${escapeHtml(item.buy)}" target="_blank" rel="noopener" aria-label="View ${id} online" onclick="event.stopPropagation()">${rawImage}</a>` : rawImage;
+    const image = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${id}">` : '';
     const loansHtml = loaned.length
       ? `<table class="loan-table"><thead><tr><th>Borrower</th><th>Taken</th><th>Expected Return</th></tr></thead><tbody>${loaned.map(loan => `<tr><td>${escapeHtml(loan.name)}</td><td>${escapeHtml(formatDate(loan.taken))}</td><td>${escapeHtml(formatDate(loan.returns))}</td></tr>`).join('')}</tbody></table>`
       : '<p class="muted">Nothing is currently loaned out.</p>';
