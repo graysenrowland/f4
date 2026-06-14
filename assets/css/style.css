@@ -467,8 +467,8 @@ footer {
 
 .equipment-img {
   width: 96px;
-  height: 64px;
-  object-fit: cover;
+  height: 54px;
+  object-fit: contain;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
@@ -568,6 +568,25 @@ footer {
 
   .badge {
     width: 100%;
+  }
+
+  .equipment-table th,
+  .equipment-table td,
+  .loan-table th,
+  .loan-table td {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+
+  .equipment-table th,
+  .loan-table th {
+    font-size: 0.74rem;
+    letter-spacing: 0.03em;
+  }
+
+  .equipment-img {
+    width: 80px;
+    height: 44px;
   }
 }
 
