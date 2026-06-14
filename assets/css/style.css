@@ -258,7 +258,7 @@ section {
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(1.9rem, 4vw, 3rem);
   letter-spacing: -0.03em;
 }
 
@@ -424,6 +424,79 @@ footer {
 .small {
   font-size: 0.92rem;
   color: var(--muted);
+}
+
+.equipment-table-wrap {
+  overflow-x: auto;
+}
+
+.equipment-table,
+.loan-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.equipment-table th,
+.equipment-table td,
+.loan-table th,
+.loan-table td {
+  padding: 14px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.equipment-table th,
+.loan-table th {
+  color: var(--accent-2);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.equipment-row {
+  cursor: pointer;
+}
+
+.equipment-row:hover,
+.equipment-row:focus-visible,
+.equipment-row.is-open {
+  background: rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+.equipment-img {
+  width: 96px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.equipment-details {
+  display: none;
+}
+
+.equipment-row.is-open + .equipment-details {
+  display: table-row;
+}
+
+.equipment-details-inner {
+  padding: 8px 0 18px;
+}
+
+.text-link {
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.loan-table {
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 @media (max-width: 980px) {
