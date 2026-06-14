@@ -68,7 +68,6 @@ function renderEquipment(items) {
     const loaned = item.loaned || [];
     const have = Number(item.have || 0);
     const available = Math.max(have - loaned.length, 0);
-    const id = escapeHtml(item.id);
     const description = escapeHtml(item.description || item.id);
     const image = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${description}">` : '';
     const loansHtml = loaned.length
@@ -101,7 +100,7 @@ function renderEquipment(items) {
   });
 }
 
-fetch('resources/equipment/manifest.yaml')
+fetch(`resources/equipment/manifest.yaml?v=${Date.now()}`)
   .then(response => {
     if (!response.ok) throw new Error('Could not load manifest.');
     return response.text();
