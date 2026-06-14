@@ -14,3 +14,9 @@ equipment:
     buy: https://www.amazon.com/dp/B07PYSJRXR
     have: 1
     loaned: []
+  LENS_001:
+    description: 20-60X Zoom Telephoto Lens
+    img: LENS_001.jpg
+    buy: https://www.amazon.com/dp/B0GTSCRFQJ
+    have: 1
+    loaned: []
