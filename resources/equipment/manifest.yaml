@@ -32,3 +32,9 @@ equipment:
     buy: https://a.co/d/03BdM6ux
     have: 1
     loaned: []
+  LIGHT_001:
+    description: 50W RGB LED Panel Light
+    img: LIGHT_001.jpg
+    buy: https://a.co/d/03hFP2ZS
+    have: 3
+    loaned: []
