@@ -14,13 +14,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text);
-  background: radial-gradient(circle at top, rgba(213, 178, 107, 0.13), transparent 30%), linear-gradient(180deg, #111318 0%, #0d1015 45%, #0a0c10 100%);
-  line-height: 1.6;
-}
+body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); background: radial-gradient(circle at top, rgba(213, 178, 107, 0.13), transparent 30%), linear-gradient(180deg, #111318 0%, #0d1015 45%, #0a0c10 100%); line-height: 1.6; }
 a { color: inherit; text-decoration: none; }
 .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
 .topbar { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(18px); background: rgba(10, 12, 16, 0.72); border-bottom: 1px solid rgba(255, 255, 255, 0.07); }
@@ -86,8 +80,8 @@ footer { padding: 0 0 48px; color: var(--muted); font-size: 0.95rem; }
 .equipment-table th, .loan-table th { color: var(--accent-2); font-size: 0.86rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .equipment-row { cursor: pointer; }
 .equipment-row:hover, .equipment-row:focus-visible, .equipment-row.is-open { background: rgba(255, 255, 255, 0.05); outline: none; }
-.equipment-image-button { display: inline-flex; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
-.equipment-img { width: 96px; height: 54px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.04); }
+.equipment-image-button { display: inline-flex; align-items: center; justify-content: center; width: 116px; height: 70px; padding: 8px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 16px; background: #fff; cursor: zoom-in; }
+.equipment-img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; border: 0; background: #fff; }
 .equipment-details { display: none; }
 .equipment-row.is-open + .equipment-details { display: table-row; }
 .equipment-details-inner { padding: 8px 0 18px; }
@@ -96,7 +90,7 @@ footer { padding: 0 0 48px; color: var(--muted); font-size: 0.95rem; }
 .modal-open { overflow: hidden; }
 .image-modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 22px; background: rgba(0, 0, 0, 0.82); backdrop-filter: blur(8px); }
 .image-modal.is-open { display: flex; }
-.image-modal-img { max-width: min(100%, 1100px); max-height: 86vh; object-fit: contain; border-radius: 18px; background: rgba(255, 255, 255, 0.05); box-shadow: var(--shadow); }
+.image-modal-img { max-width: min(100%, 1100px); max-height: 86vh; object-fit: contain; border-radius: 18px; background: #fff; box-shadow: var(--shadow); }
 .image-modal-close { position: fixed; top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(15, 17, 21, 0.82); color: var(--text); font-size: 2rem; line-height: 1; cursor: pointer; }
 @media (max-width: 980px) {
   .hero-grid, .grid-3, .grid-4, .grid-2, .cta-inner { grid-template-columns: 1fr; display: grid; }
@@ -117,7 +111,7 @@ footer { padding: 0 0 48px; color: var(--muted); font-size: 0.95rem; }
   .badge { width: 100%; }
   .equipment-table th, .equipment-table td, .loan-table th, .loan-table td { padding: 10px 8px; font-size: 0.9rem; }
   .equipment-table th, .loan-table th { font-size: 0.74rem; letter-spacing: 0.03em; }
-  .equipment-img { width: 80px; height: 44px; }
+  .equipment-image-button { width: 92px; height: 58px; padding: 7px; }
   .image-modal { padding: 12px; }
   .image-modal-img { max-height: 82vh; }
 }
