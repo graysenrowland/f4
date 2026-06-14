@@ -8,3 +8,9 @@ equipment:
       - name: Jon Doe
         taken: 2026-06-01
         returns: 2026-06-30
+  SLATE_001:
+    description: Zacro Acrylic Film Clapboard
+    img: SLATE_001.jpg
+    buy: https://www.amazon.com/dp/B07PYSJRXR
+    have: 1
+    loaned: []
