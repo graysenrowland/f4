@@ -37,4 +37,7 @@ equipment:
     img: LIGHT_001.jpg
     buy: https://a.co/d/03hFP2ZS
     have: 3
-    loaned: []
+    loaned:
+      - name: Annie
+        taken: 2026-06-13
+        returns: 2026-07-01
