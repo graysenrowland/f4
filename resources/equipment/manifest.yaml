@@ -26,3 +26,9 @@ equipment:
     buy: https://a.co/d/0198KVTi
     have: 1
     loaned: []
+  AUDIO_001:
+    description: Zoom H4essential 32-bit Float Recorder
+    img: AUDIO_001.jpg
+    buy: https://a.co/d/03BdM6ux
+    have: 1
+    loaned: []
