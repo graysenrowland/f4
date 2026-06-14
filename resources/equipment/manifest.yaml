@@ -20,3 +20,9 @@ equipment:
     buy: https://www.amazon.com/dp/B0GTSCRFQJ
     have: 1
     loaned: []
+  MIC_001:
+    description: VidPro XM-88 Shotgun Microphone Kit w/ Boom
+    img: MIC_001.jpg
+    buy: https://a.co/d/0198KVTi
+    have: 1
+    loaned: []
