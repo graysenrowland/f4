@@ -60,7 +60,7 @@ function formatDate(value) {
 function renderEquipment(items) {
   const tbody = document.getElementById('equipment-body');
   if (!items.length) {
-    tbody.innerHTML = '<tr><td colspan="6" class="muted">No equipment listed yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" class="muted">No equipment listed yet.</td></tr>';
     return;
   }
 
@@ -69,8 +69,8 @@ function renderEquipment(items) {
     const have = Number(item.have || 0);
     const available = Math.max(have - loaned.length, 0);
     const id = escapeHtml(item.id);
-    const image = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${id}">` : '';
-    const buy = item.buy ? `<a class="text-link" href="${escapeHtml(item.buy)}" target="_blank" rel="noopener">Buy</a>` : '';
+    const rawImage = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${id}">` : '';
+    const image = item.buy && rawImage ? `<a class="equipment-image-link" href="${escapeHtml(item.buy)}" target="_blank" rel="noopener" aria-label="View ${id} online" onclick="event.stopPropagation()">${rawImage}</a>` : rawImage;
     const loansHtml = loaned.length
       ? `<table class="loan-table"><thead><tr><th>Borrower</th><th>Taken</th><th>Expected Return</th></tr></thead><tbody>${loaned.map(loan => `<tr><td>${escapeHtml(loan.name)}</td><td>${escapeHtml(formatDate(loan.taken))}</td><td>${escapeHtml(formatDate(loan.returns))}</td></tr>`).join('')}</tbody></table>`
       : '<p class="muted">Nothing is currently loaned out.</p>';
@@ -82,9 +82,8 @@ function renderEquipment(items) {
         <td>${have}</td>
         <td>${available}</td>
         <td>${loaned.length}</td>
-        <td>${buy}</td>
       </tr>
-      <tr class="equipment-details"><td colspan="6"><div class="equipment-details-inner"><h3>${id} loans</h3>${loansHtml}</div></td></tr>
+      <tr class="equipment-details"><td colspan="5"><div class="equipment-details-inner"><h3>${id} loans</h3>${loansHtml}</div></td></tr>
     `;
   }).join('');
 
@@ -110,5 +109,5 @@ fetch('resources/equipment/manifest.yaml')
   })
   .then(text => renderEquipment(parseEquipmentManifest(text)))
   .catch(() => {
-    document.getElementById('equipment-body').innerHTML = '<tr><td colspan="6" class="muted">Equipment manifest could not be loaded.</td></tr>';
+    document.getElementById('equipment-body').innerHTML = '<tr><td colspan="5" class="muted">Equipment manifest could not be loaded.</td></tr>';
   });
