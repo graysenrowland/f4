@@ -3,11 +3,8 @@ equipment:
     description: GoPro Max
     img: CAM_001.jpg
     buy: https://www.amazon.com/dp/B092RJZ7N8
-    have: 3
-    loaned:
-      - name: Jon Doe
-        taken: 2026-06-01
-        returns: 2026-06-30
+    have: 1
+    loaned: []
   SLATE_001:
     description: Zacro Acrylic Film Clapboard
     img: SLATE_001.jpg
