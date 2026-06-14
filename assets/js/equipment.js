@@ -57,6 +57,39 @@ function formatDate(value) {
   return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
+function openImageModal(src, alt) {
+  let modal = document.querySelector('.image-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = '<button class="image-modal-close" type="button" aria-label="Close image">×</button><img class="image-modal-img" alt="">';
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal || event.target.classList.contains('image-modal-close')) {
+        closeImageModal();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeImageModal();
+    });
+  }
+
+  const img = modal.querySelector('.image-modal-img');
+  img.src = src;
+  img.alt = alt;
+  modal.classList.add('is-open');
+  document.body.classList.add('modal-open');
+}
+
+function closeImageModal() {
+  const modal = document.querySelector('.image-modal');
+  if (!modal) return;
+  modal.classList.remove('is-open');
+  document.body.classList.remove('modal-open');
+}
+
 function renderEquipment(items) {
   const tbody = document.getElementById('equipment-body');
   if (!items.length) {
@@ -69,7 +102,8 @@ function renderEquipment(items) {
     const have = Number(item.have || 0);
     const available = Math.max(have - loaned.length, 0);
     const description = escapeHtml(item.description || item.id);
-    const image = item.img ? `<img class="equipment-img" src="resources/equipment/${escapeHtml(item.img)}" alt="${description}">` : '';
+    const imgSrc = item.img ? `resources/equipment/${escapeHtml(item.img)}` : '';
+    const image = imgSrc ? `<button class="equipment-image-button" type="button" data-img-src="${imgSrc}" data-img-alt="${description}" aria-label="View ${description} image"><img class="equipment-img" src="${imgSrc}" alt="${description}"></button>` : '';
     const loansHtml = loaned.length
       ? `<table class="loan-table"><thead><tr><th>Borrower</th><th>Taken</th><th>Expected Return</th></tr></thead><tbody>${loaned.map(loan => `<tr><td>${escapeHtml(loan.name)}</td><td>${escapeHtml(formatDate(loan.taken))}</td><td>${escapeHtml(formatDate(loan.returns))}</td></tr>`).join('')}</tbody></table>`
       : '<p class="muted">Nothing is currently loaned out.</p>';
@@ -84,6 +118,13 @@ function renderEquipment(items) {
       <tr class="equipment-details"><td colspan="4"><div class="equipment-details-inner"><h3>${description} loans</h3>${loansHtml}</div></td></tr>
     `;
   }).join('');
+
+  document.querySelectorAll('.equipment-image-button').forEach(button => {
+    button.addEventListener('click', event => {
+      event.stopPropagation();
+      openImageModal(button.dataset.imgSrc, button.dataset.imgAlt);
+    });
+  });
 
   document.querySelectorAll('.equipment-row').forEach(row => {
     const toggle = () => {
